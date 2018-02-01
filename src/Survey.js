@@ -14,15 +14,20 @@ var config = {
 firebase.initializeApp(config);
 
 class Survey extends Component {
+
   nameSubmit(event) {
     var studentName = this.refs.name.value;
-    this.setState({studentName: studentName}, function(){
-      console.log(this.state);
-    });
+    this.setState({studentName: studentName});
   }
+
   questionSubmit(){
-    // TODO:
+    firebase.database().ref('life-questions-survey/'+this.state.uid).set({
+      studentName: this.state.studentName,
+      answers: this.state.answers
+    });
+    this.setState({isSubmitted: true});
   }
+
   answerSelected(event){
     var answers = this.state.answers;
     if(event.target.name === 'answer1'){
@@ -43,7 +48,7 @@ class Survey extends Component {
 
     this.state = {
       uid: uuid.v1(),
-      studentName: 'puppu',
+      studentName: '',
       answers: {
         answer1: '',
         answer2: '',
@@ -100,6 +105,8 @@ class Survey extends Component {
           <input className="feedback-button" type="submit" value="Submit" />
         </form>
       </div>;
+    } else if(this.state.isSubmitted === true && this.state.studentName !== '') {
+      head = <h1>Thanks, {this.state.studentName}</h1>;
     }
 
     return(
