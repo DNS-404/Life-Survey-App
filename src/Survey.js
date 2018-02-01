@@ -20,6 +20,12 @@ class Survey extends Component {
       console.log(this.state);
     });
   }
+  questionSubmit(){
+    // TODO:
+  }
+  answerSelected(){
+    // TODO:
+  }
 
   constructor(props){
     super(props);
@@ -38,6 +44,8 @@ class Survey extends Component {
     };
 
     this.nameSubmit = this.nameSubmit.bind(this);
+    this.questionSubmit = this.questionSubmit.bind(this);
+    this.answerSelected = this.answerSelected.bind(this);
   }
 
   render(){
@@ -52,12 +60,21 @@ class Survey extends Component {
         </form>
       </div>;
       foot = '';
+    } else if (this.state.studentName !== '' && this.state.isSubmitted === false){
+      head = <div>
+        <h2>Here are the questions. Please take your time while answering them.</h2>
+        <form onSubmit={this.questionSubmit}>
+        </form>
+      </div>;
+    } else if (this.state.studentName !== '' && this.state.isSubmitted === true){
+      head = <h1>Thanks, {this.state.studentName} for your time.</h1>
+
     }
 
     return(
       <div>
         {head}
-        ---------------------------------------
+        <br />
         {foot}
       </div>
     );
