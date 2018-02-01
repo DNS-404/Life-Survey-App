@@ -12,9 +12,6 @@ class App extends Component {
           <h1 className="App-title">Welcome to the Life Survey</h1>
         </header>
         <Survey />
-        <footer>
-          Made by Divyanshu N Singh in ReactJS.
-        </footer>
       </div>
     );
   }

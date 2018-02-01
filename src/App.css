@@ -94,3 +94,8 @@ input[type="radio"] {
   -webkit-box-shadow: 0 5px 0 0 rgba(178,49,49,1) ;
   box-shadow: 0 5px 0 0 rgba(178,49,49,1) ;
 }
+
+.nami {
+  font-size: 15px;
+  padding: 10px;
+}
