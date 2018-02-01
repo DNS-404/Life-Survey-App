@@ -2,13 +2,15 @@ import React, {Component} from 'react';
 var firebase = require('firebase');
 var uuid = require('uuid');
 
+// Initialize Firebase
 var config = {
-    apiKey: "<API_KEY>",
-    authDomain: "<PROJECT_ID>.firebaseapp.com",
-    databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
-    storageBucket: "<BUCKET>.appspot.com",
-    messagingSenderId: "<SENDER_ID>",
-  };
+  apiKey: "AIzaSyAQCRCxjjM4AYQhNRfGXDKXcTr12Qf5-J8",
+  authDomain: "life-questions-survey.firebaseapp.com",
+  databaseURL: "https://life-questions-survey.firebaseio.com",
+  projectId: "life-questions-survey",
+  storageBucket: "life-questions-survey.appspot.com",
+  messagingSenderId: "217973167203"
+};
 firebase.initializeApp(config);
 
 class Survey extends Component {
